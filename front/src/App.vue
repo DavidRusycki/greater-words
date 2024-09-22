@@ -5,14 +5,14 @@
 </template>
 
 <script>
-import WordCloud from "@/components/word-cloud/WordCloud.vue";
+import WordCloud from '@/components/word-cloud/WordCloud.vue'
 
 export default {
-  name: "App",
+  name: 'App',
   components: {
-    WordCloud,
-  },
-};
+    WordCloud
+  }
+}
 </script>
 
 <style></style>
