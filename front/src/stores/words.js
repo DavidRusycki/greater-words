@@ -18,8 +18,7 @@ export default defineStore('words', {
       this.words.forEach(function (d) {
         actualWords.push({
           text: d,
-          size: 10 + Math.random() * 100,
-          color: 'red'
+          size: 10 + Math.random() * 100
         })
       })
 

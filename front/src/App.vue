@@ -1,17 +1,11 @@
 <template>
-  <div>
-    <WordCloud />
-  </div>
+  <RouterView />
 </template>
 
 <script>
-import WordCloud from '@/components/word-cloud/WordCloud.vue'
-
 export default {
   name: 'App',
-  components: {
-    WordCloud
-  }
+  components: {}
 }
 </script>
 
