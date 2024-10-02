@@ -48,11 +48,21 @@ export default {
     D3WordCloud
   },
   mounted() {
-    this.setWords(this.words)
-    this.render()
+    setInterval(() => {
+      this.update()
+    }, 10000)
+
+    this.update()
   },
   methods: {
-    ...mapActions(useWordsStore, ['render', 'setWords'])
+    ...mapActions(useWordsStore, ['render', 'setWords']),
+    update() {
+      console.log('updating words...')
+      //search words
+      this.setWords(this.words)
+      this.render()
+      console.log('updating finished.')
+    }
   }
 }
 </script>

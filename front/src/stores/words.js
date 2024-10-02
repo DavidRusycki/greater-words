@@ -11,7 +11,6 @@ export default defineStore('words', {
       this.words = words
     },
     render() {
-      //const canvas = document.getElementById('canvas')
       console.log('render method')
 
       let actualWords = []
@@ -22,6 +21,7 @@ export default defineStore('words', {
         })
       })
 
+      document.getElementById('canvas').innerHTML = ''
       var layout = d3Cloud()
         .size([500, 500])
         //.canvas(canvas)
