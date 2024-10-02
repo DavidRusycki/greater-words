@@ -8,40 +8,13 @@
 import D3WordCloud from '@/components/word-cloud/D3WordCloud.vue'
 import useWordsStore from '@/stores/words.js'
 import { mapActions } from 'pinia'
+import axios from 'axios'
 
 export default {
   name: 'WordCloud',
   data() {
     return {
-      words: [
-        'Hello',
-        'world',
-        'normally',
-        'you',
-        'want',
-        'more',
-        'words',
-        'than',
-        'this',
-        'Hello',
-        'world',
-        'normally',
-        'you',
-        'want',
-        'more',
-        'words',
-        'than',
-        'this',
-        'Hello',
-        'world',
-        'normally',
-        'you',
-        'want',
-        'more',
-        'words',
-        'than',
-        'this'
-      ]
+      words: []
     }
   },
   components: {
@@ -56,9 +29,14 @@ export default {
   },
   methods: {
     ...mapActions(useWordsStore, ['render', 'setWords']),
-    update() {
+    async update() {
       console.log('updating words...')
-      //search words
+      await axios.get('http://localhost:8080/words').then((response) => {
+        this.words = []
+        response.data.forEach((element) => {
+          this.words.push({ word: element.word, count: element.count * 10 })
+        })
+      })
       this.setWords(this.words)
       this.render()
       console.log('updating finished.')

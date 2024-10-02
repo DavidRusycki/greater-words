@@ -16,8 +16,8 @@ export default defineStore('words', {
       let actualWords = []
       this.words.forEach(function (d) {
         actualWords.push({
-          text: d,
-          size: 10 + Math.random() * 100
+          text: d.word,
+          size: d.count
         })
       })
 

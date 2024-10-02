@@ -64,6 +64,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: 'HomeView',
   data() {
@@ -83,7 +85,11 @@ export default {
       }
 
       console.log('uploading words...')
-      console.log(this.words)
+      let payload = []
+      this.words.map((word) => {
+        payload.push(word)
+      })
+      axios.post('http://localhost:8080/words', { words: payload })
       console.log('uploading finished.')
 
       this.$router.push({ name: 'cloud' })

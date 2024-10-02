@@ -1,0 +1,4 @@
+env: dev
+
+server:
+  detailedJsonProcessingExceptionMapper: true
